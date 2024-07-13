@@ -2,6 +2,7 @@
 
 mi-env
 # Compiled output
+*__pycache__*
 /tmp
 /out-tsc
 /bazel-out
