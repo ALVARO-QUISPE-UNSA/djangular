@@ -65,7 +65,7 @@ export class AppComponent {
 
   updateMovie(idElement:HTMLInputElement) {
     console.log("actualizar: " , idElement.value);
-    this.api.updateMovie(idElement.value ?? '', this.nuevaPelicula).subscribe({
+    this.api.updateMovie(idElement.value ?? '', this.actualizarPelicula).subscribe({
       next: data => {
         let idx = this.movies.findIndex(m => m.id === data.id);
         if (idx >= 0) this.movies[idx] = data;
