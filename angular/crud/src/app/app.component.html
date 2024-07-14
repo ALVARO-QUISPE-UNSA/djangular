@@ -1,6 +1,10 @@
 <router-outlet />
 <!-->Mi lista irá aquí</!-->
 <h2>Lista de Movies</h2>
+<form (submit)="getMovieById(id)">
+  <input #id type="number" placeholder="introduce id">
+</form>
+<p>Resultado: {{ busqueda }}</p>
 <ul>
   <li>
     @for (m of movies; track m) {

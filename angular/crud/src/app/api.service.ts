@@ -14,7 +14,7 @@ export class ApiService {
     return this.http.get(this.baseurl + '/movie/',
                          {headers:this.httpHeaders})
   }
-  getMovieById(id: number): Observable<any> {
+  getMovieById(id: string): Observable<any> {
     return this.http.get(`${this.baseurl}/movie/${id}/`, { headers: this.httpHeaders });
   }
   createMovie(movie: any): Observable<any> {
