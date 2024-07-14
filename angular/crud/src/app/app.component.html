@@ -1,15 +1,25 @@
 <router-outlet />
 <!-->Mi lista irá aquí</!-->
-<h2>Lista de Movies</h2>
+<h3>Lista de Movies</h3>
 <form (submit)="getMovieById(id)">
   <input #id type="number" placeholder="introduce id">
 </form>
 <p>Resultado: {{ busqueda }}</p>
+<h3>Crear película</h3>
 <form (submit)="createMovie()">
   <input type="text" name="title" placeholder="Título" [(ngModel)]="nuevaPelicula.title">
   <input type="text" placeholder="descripción" [(ngModel)]="nuevaPelicula.desc" name="desc">
   <input type="number" placeholder="año" [(ngModel)]="nuevaPelicula.year" name="year">
   <button type="submit">Enviar</button>
+</form>
+<h3>Actualizar completamente</h3>
+<form (submit)="updateMovie(idn)">
+  <input #idn type="number" placeholder="introduce id"><br>
+  <input type="text" name="title" placeholder="Título" [(ngModel)]="actualizarPelicula.title"><br>
+  <input type="text" placeholder="descripción" [(ngModel)]="actualizarPelicula.desc" name="desc"><br>
+  <input type="number" placeholder="año" [(ngModel)]="actualizarPelicula.year" name="year"><br>
+  <button type="submit">Enviar</button>
+
 </form>
 <ul>
   <li>

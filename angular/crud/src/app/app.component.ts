@@ -20,6 +20,11 @@ export class AppComponent {
     desc: '',
     year: NaN,
   };
+  actualizarPelicula = {
+    title: '',
+    desc: '',
+    year: NaN,
+  };
   busqueda = "";
   movies :any[] = []
   constructor(private api:ApiService) {
@@ -56,13 +61,16 @@ export class AppComponent {
       },
       error: err => console.error(err)
     });
-
   }
 
-  xd(input : HTMLInputElement) {
-    let inputText = input.value.trim();
-    this.api.createMovie(inputText).subscribe({
-      next: data => console.log(data),
+  updateMovie(idElement:HTMLInputElement) {
+    console.log("actualizar: " , idElement.value);
+    this.api.updateMovie(idElement.value ?? '', this.nuevaPelicula).subscribe({
+      next: data => {
+        let idx = this.movies.findIndex(m => m.id === data.id);
+        if (idx >= 0) this.movies[idx] = data;
+        console.log(data);
+      },
       error: err => console.error(err)
     });
   }

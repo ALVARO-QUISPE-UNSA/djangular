@@ -20,7 +20,7 @@ export class ApiService {
   createMovie(movie: any): Observable<any> {
     return this.http.post(`${this.baseurl}/movie/`, movie, { headers: this.httpHeaders });
   }
-  updateMovie(id: number, movie: any): Observable<any> {
+  updateMovie(id: string, movie: any): Observable<any> {
     return this.http.put(`${this.baseurl}/movie/${id}/`, movie, { headers: this.httpHeaders });
   }
   partialUpdateMovie(id: number, movie: any): Observable<any> {
