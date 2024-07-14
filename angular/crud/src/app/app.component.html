@@ -12,6 +12,7 @@
   <input type="number" placeholder="año" [(ngModel)]="nuevaPelicula.year" name="year">
   <button type="submit">Enviar</button>
 </form>
+
 <h3>Actualizar completamente</h3>
 <form (submit)="updateMovie(idn)">
   <input #idn type="number" placeholder="introduce id"><br>
@@ -20,7 +21,12 @@
   <input type="number" placeholder="año" [(ngModel)]="actualizarPelicula.year" name="year"><br>
   <button type="submit">Enviar</button>
 
+<h3>Eliminar</h3>
+<form (submit)="deleteMovie(idd)">
+  <input #idd type="number" placeholder="introduce id"><br>
+  <button type="submit">Enviar</button>
 </form>
+
 <ul>
   <li>
     @for (m of movies; track m) {

@@ -23,10 +23,10 @@ export class ApiService {
   updateMovie(id: string, movie: any): Observable<any> {
     return this.http.put(`${this.baseurl}/movie/${id}/`, movie, { headers: this.httpHeaders });
   }
-  partialUpdateMovie(id: number, movie: any): Observable<any> {
-    return this.http.patch(`${this.baseurl}/movie/${id}/`, movie, { headers: this.httpHeaders });
-  }
-  deleteMovie(id: number): Observable<any> {
+  //partialUpdateMovie(id: number, movie: any): Observable<any> {
+  //  return this.http.patch(`${this.baseurl}/movie/${id}/`, movie, { headers: this.httpHeaders });
+  //}
+  deleteMovie(id: string): Observable<any> {
     return this.http.delete(`${this.baseurl}/movie/${id}/`, { headers: this.httpHeaders });
   }
 

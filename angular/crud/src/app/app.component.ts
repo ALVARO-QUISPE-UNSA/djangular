@@ -41,6 +41,7 @@ export class AppComponent {
       }
     });
   }
+
   getMovieById(idElement : HTMLInputElement) {
     let idText = idElement.value?.trim();
     console.log('valor: ', idText);
@@ -70,6 +71,18 @@ export class AppComponent {
         let idx = this.movies.findIndex(m => m.id === data.id);
         if (idx >= 0) this.movies[idx] = data;
         console.log(data);
+      },
+      error: err => console.error(err)
+    });
+  }
+
+  deleteMovie(idElement : HTMLInputElement) {
+    let idText = idElement.value?.trim();
+    console.log('valor: ', idText);
+    this.api.deleteMovie(idText ?? '').subscribe({
+      next: () => {
+        let idx = this.movies.findIndex(m => parseInt(idText) === m.id);
+        this.movies.splice(idx, idx);
       },
       error: err => console.error(err)
     });
