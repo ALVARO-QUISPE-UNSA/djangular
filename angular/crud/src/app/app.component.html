@@ -3,7 +3,8 @@
 <h2>Lista de Movies</h2>
 <ul>
   <li>
-
-    <h2> </h2>
+    @for (m of movies; track m) {
+    <h2>{{m.title}} </h2>
+    }
   </li>
 </ul>
