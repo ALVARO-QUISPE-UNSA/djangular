@@ -14,4 +14,22 @@ export class ApiService {
     return this.http.get(this.baseurl + '/movie/',
                          {headers:this.httpHeaders})
   }
+  getMovieById(id: number): Observable<any> {
+    return this.http.get(`${this.baseurl}/movie/${id}/`, { headers: this.httpHeaders });
+  }
+  createMovie(movie: any): Observable<any> {
+    return this.http.post(`${this.baseurl}/movie/`, movie, { headers: this.httpHeaders });
+  }
+  updateMovie(id: number, movie: any): Observable<any> {
+    return this.http.put(`${this.baseurl}/movie/${id}/`, movie, { headers: this.httpHeaders });
+  }
+  partialUpdateMovie(id: number, movie: any): Observable<any> {
+    return this.http.patch(`${this.baseurl}/movie/${id}/`, movie, { headers: this.httpHeaders });
+  }
+  deleteMovie(id: number): Observable<any> {
+    return this.http.delete(`${this.baseurl}/movie/${id}/`, { headers: this.httpHeaders });
+  }
+
+
+
 }
