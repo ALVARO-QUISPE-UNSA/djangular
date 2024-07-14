@@ -5,6 +5,12 @@
   <input #id type="number" placeholder="introduce id">
 </form>
 <p>Resultado: {{ busqueda }}</p>
+<form (submit)="createMovie()">
+  <input type="text" name="title" placeholder="Título" [(ngModel)]="nuevaPelicula.title">
+  <input type="text" placeholder="descripción" [(ngModel)]="nuevaPelicula.desc" name="desc">
+  <input type="number" placeholder="año" [(ngModel)]="nuevaPelicula.year" name="year">
+  <button type="submit">Enviar</button>
+</form>
 <ul>
   <li>
     @for (m of movies; track m) {

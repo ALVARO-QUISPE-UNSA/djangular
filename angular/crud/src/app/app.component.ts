@@ -15,6 +15,11 @@ export class AppComponent {
   //  {title:'peli1'},
   //  {title:'peli2'}
   //];
+  nuevaPelicula = {
+    title: '',
+    desc: '',
+    year: NaN,
+  };
   busqueda = "";
   movies :any[] = []
   constructor(private api:ApiService) {
@@ -42,4 +47,24 @@ export class AppComponent {
       error: err => console.error(err)
     });
   }
+
+  createMovie() {
+    this.api.createMovie(this.nuevaPelicula).subscribe({
+      next: data => {
+        this.movies.push(data);
+        console.log(data);
+      },
+      error: err => console.error(err)
+    });
+
+  }
+
+  xd(input : HTMLInputElement) {
+    let inputText = input.value.trim();
+    this.api.createMovie(inputText).subscribe({
+      next: data => console.log(data),
+      error: err => console.error(err)
+    });
+  }
+
 }
