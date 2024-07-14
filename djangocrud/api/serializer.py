@@ -5,4 +5,5 @@ from .models import Movie
 class MovieSerializer(serializers.ModelField):
     class Meta:
         model = Movie
-        fields = ('id', 'title', 'desc', 'year')
+        #fields = ('id', 'title', 'desc', 'year')
+        fields = '__all__'
